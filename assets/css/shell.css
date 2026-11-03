@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Shell — shared by every page (incl. the modelling page):
+   woven Index label, cloth curtain, swatch-book menu, toast
+   ========================================================================== */
+:root { --crimson: #7E0E14; --muslin: #E8DDC7; --ease-io: cubic-bezier(.76, 0, .24, 1); --curtain: #EFEAE2; }
+:root:not(:has(.hdr)) { --hdr: 64px; }
+@media (max-width: 760px) { :root:not(:has(.hdr)) { --hdr: 58px; } }
+
+/* the woven label button */
+.label-btn {
+  position: relative; display: inline-flex; align-items: center; gap: 10px;
+  padding: 9px 14px 9px 16px;
+  background: #F4EEE3; color: #1A1412;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 6px 18px -8px rgba(0,0,0,.35);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  transform-origin: 50% 0;
+}
+.label-btn::before { /* stitching */
+  content: ""; position: absolute; inset: 3px; pointer-events: none;
+  border: 1px dashed rgba(26,20,18,.35);
+}
+.label-btn::after { /* woven texture */
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,.035) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgba(0,0,0,.03) 0 1px, transparent 1px 3px);
+}
+.label-btn b { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 17px; letter-spacing: 0; text-transform: none; line-height: 1; }
+.label-btn:hover { transform: rotate(-2deg) translateY(2px); box-shadow: 0 1px 0 rgba(0,0,0,.08), 0 12px 24px -10px rgba(0,0,0,.45); }
+.label-btn .dots { display: inline-grid; grid-template-columns: repeat(2, 4px); gap: 3px; }
+.label-btn .dots i { width: 4px; height: 4px; background: currentColor; border-radius: 1px; transition: transform .5s var(--ease); }
+.label-btn:hover .dots i:nth-child(1) { transform: translate(7px, 0); }
+.label-btn:hover .dots i:nth-child(4) { transform: translate(-7px, 0); }
+
+
+/* ==========================================================================
+   Curtain — page transitions (a cloth that drops and lifts)
+   ========================================================================== */
+.curtain {
+  position: fixed; inset: 0; z-index: 200; pointer-events: none;
+  transform: translate3d(0, calc(-100% - 14vh), 0);
+  will-change: transform;
+}
+:root { --curtain: #EFEAE2; }
+html.curtain-in .curtain, html.first-visit .curtain { transform: none; pointer-events: auto; }
+.curtain__cloth {
+  position: absolute; inset: 0; background: var(--curtain);
+  overflow: hidden;
+}
+.curtain__cloth::before { /* drape folds */
+  content: ""; position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.16) 0, rgba(0,0,0,0) 4%, rgba(255,255,255,.07) 7%, rgba(0,0,0,0) 10%, rgba(0,0,0,.1) 14.2%);
+  mix-blend-mode: multiply; opacity: .55;
+}
+.curtain__cloth::after { /* weave */
+  content: ""; position: absolute; inset: 0; opacity: .35;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 1px, transparent 1px 3px);
+}
+.curtain__hem { position: absolute; left: 0; top: calc(100% - 1px); width: 100%; height: 14vh; display: block; }
+.curtain__hem path { fill: var(--curtain); }
+.curtain__label {
+  position: absolute; left: 50%; top: 50%; z-index: 2; transform: translate(-50%, -50%);
+  display: grid; justify-items: center; gap: 14px; text-align: center; width: min(90vw, 520px);
+  color: var(--curtain-fg, #1A1412);
+}
+.curtain__label::before { content: var(--curtain-label, ""); font-family: var(--serif); font-size: clamp(30px, 5vw, 56px); letter-spacing: -.01em; line-height: 1; text-transform: none; }
+.curtain__thread { width: 160px; height: 2px; position: relative; }
+.curtain__thread i { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, currentColor 0 7px, transparent 7px 12px); transform-origin: left; transform: scaleX(var(--p, 0)); transition: transform .3s linear; }
+.curtain__thread::after { content: ""; position: absolute; top: -3px; left: calc(var(--p, 0) * 100%); width: 18px; height: 8px; margin-left: -2px; border-radius: 50%; border: 1px solid currentColor; transition: left .3s linear; } /* needle eye */
+
+/* ==========================================================================
+   Swatch-book menu (the Index)
+   ========================================================================== */
+.sb { position: fixed; inset: 0; z-index: 180; visibility: hidden; }
+.sb.is-open { visibility: visible; }
+.sb__scrim { position: absolute; inset: 0; background: rgba(10, 6, 4, .45); opacity: 0; transition: opacity .6s var(--ease); }
+.sb.is-open .sb__scrim { opacity: 1; }
+.sb__panel {
+  position: absolute; inset: 0 0 auto; min-height: 100%; max-height: 100%;
+  background: #EEE7DB; color: #1A1412;
+  transform: translate3d(0, calc(-100% - 12vh), 0);
+  transition: transform 1s var(--ease-io);
+  display: flex; flex-direction: column;
+  padding: 0 var(--gutter) 28px;
+}
+.sb.is-open .sb__panel { transform: none; }
+.sb__panel::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,.03) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgba(0,0,0,.025) 0 1px, transparent 1px 3px);
+}
+.sb__hem { position: absolute; left: 0; top: calc(100% - 1px); width: 100%; height: 12vh; display: block; }
+.sb__hem path { fill: #EEE7DB; }
+.sb__top { position: relative; display: flex; justify-content: space-between; align-items: center; height: var(--hdr); }
+.sb__close { display: inline-flex; gap: 10px; align-items: center; }
+.sb__close span { display: inline-block; transition: transform .5s var(--ease); }
+.sb__close:hover span { transform: rotate(90deg); }
+.sb__head { position: relative; display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-top: clamp(4px, 2vh, 24px); }
+.sb__title { font-family: var(--serif); font-size: clamp(40px, 7vw, 104px); line-height: .9; letter-spacing: -.02em; margin: 0; }
+.sb__title i { color: var(--crimson); }
+.sb__head p { max-width: 30ch; margin: 0; color: #6F645C; }
+
+.sb__rail { position: relative; margin-top: clamp(24px, 6vh, 64px); flex: 1; display: flex; flex-direction: column; }
+.sb__rail::before { /* the rail */
+  content: ""; position: absolute; left: -2%; right: -2%; top: 0; height: 6px; border-radius: 3px;
+  background: linear-gradient(180deg, #8d7656, #3c2f22 60%, #1d160f);
+  box-shadow: 0 3px 6px rgba(0,0,0,.25);
+}
+.sb__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2.2vw, 36px); perspective: 1200px; }
+.sb__item { --i: 0; transform-origin: 50% 0; transform: rotateX(-96deg); opacity: 0; transition: transform 1.2s cubic-bezier(.2, 1.4, .3, 1), opacity .4s; }
+.sb.is-open .sb__item { transform: none; opacity: 1; transition-delay: calc(.35s + var(--i) * .09s); }
+.sb__link { display: block; position: relative; padding-top: 10px; transform-origin: 50% 0; transition: transform .8s var(--ease); }
+.sb__link:hover, .sb__link:focus-visible { transform: rotate(-1.4deg) translateY(4px); }
+.sb__item:nth-child(even) .sb__link:hover { transform: rotate(1.4deg) translateY(4px); }
+.sb__clip { position: absolute; top: -6px; left: 50%; width: 30px; height: 18px; margin-left: -15px; z-index: 2; border-radius: 3px 3px 2px 2px; background: linear-gradient(180deg, #d2b47e, #8a6a3a); box-shadow: 0 2px 3px rgba(0,0,0,.3); }
+.sb__swatch {
+  display: block; position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #ddd2bd;
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 9px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 18px 9px repeat-x;
+          mask: linear-gradient(#000 0 0) top / 100% calc(100% - 9px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 18px 9px repeat-x;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+.sb__swatch img, .sb__swatch canvas { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease), filter .6s; }
+.sb__link:hover .sb__swatch img, .sb__link:hover .sb__swatch canvas { transform: scale(1.06); }
+.sb__swatch::after { /* weave + fold light */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, rgba(0,0,0,.18), transparent 30%, rgba(255,255,255,.12) 55%, transparent 75%, rgba(0,0,0,.14)), repeating-linear-gradient(0deg, rgba(0,0,0,.04) 0 1px, transparent 1px 3px);
+  mix-blend-mode: soft-light;
+}
+.sb__tag { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin-top: 14px; align-items: baseline; }
+.sb__tag .mono { color: #6F645C; }
+.sb__tag b { font-family: var(--serif); font-weight: 400; font-size: clamp(20px, 2.1vw, 32px); line-height: 1.05; letter-spacing: -.01em; }
+.sb__tag small { grid-column: 2; }
+.sb__item.is-soon .sb__tag small { color: var(--crimson); }
+.sb__item.is-current .sb__tag b::after { content: " ●"; font-size: .4em; vertical-align: middle; color: var(--crimson); }
+.sb__foot { position: relative; display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: space-between; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(26,20,18,.14); }
+.sb__foot nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.sb__foot a:hover { color: var(--crimson); }
+
+@media (max-width: 900px) {
+  .sb__panel { overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+  .sb__list { grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+  .sb__rail::before { display: none; }
+  .sb__head p { display: none; }
+}
+
+/* soon "shake" note */
+.toast {
+  position: fixed; z-index: 260; left: 0; top: 0; pointer-events: none;
+  padding: 10px 14px; background: #1A1412; color: #EFEAE2;
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  opacity: 0; transform: translate(-50%, -130%) scale(.9) rotate(-2deg); transition: opacity .3s, transform .5s var(--ease);
+  white-space: nowrap;
+}
+.toast.is-on { opacity: 1; transform: translate(-50%, -150%) scale(1) rotate(-2deg); }
+.toast::before { content: ""; position: absolute; inset: 3px; border: 1px dashed rgba(239,234,226,.35); }
+
+
+/* button reset for pages that don't load core.css (modelling) */
+.sb button, .label-btn { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; -webkit-appearance: none; appearance: none; }
+.sb button.sb__link { display: block; width: 100%; }
+.label-btn { background: #F4EEE3; color: #1A1412; padding: 9px 14px 9px 16px; font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.sb { font-family: var(--sans, "Geist", system-ui, sans-serif); }

@@ -4,6 +4,19 @@
   const fine = matchMedia('(pointer: fine)').matches;
   document.documentElement.classList.add('js');
 
+  /* ---------- start lazy images early ----------
+     Reveal animations clip images to nothing, and Chrome treats a fully clipped
+     lazy image as off-screen, so it would only start downloading once the reveal
+     began (slow, sometimes blank). Switch them to eager ~1.5 screens ahead. */
+  const lazyImgs = document.querySelectorAll('img[loading="lazy"]');
+  if ('IntersectionObserver' in window) {
+    const lio = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { (e.target._imgs || [e.target]).forEach(i => { i.loading = 'eager'; }); lio.unobserve(e.target); }
+    }), { rootMargin: '150% 0px 150% 0px' });
+    lazyImgs.forEach(img => { const t = img.closest('figure') || img.parentElement || img; (t._imgs = t._imgs || []).push(img); lio.observe(t); });
+  } else lazyImgs.forEach(img => { img.loading = 'eager'; });
+
+
   /* ---------- reveal on scroll ---------- */
   const revealEls = document.querySelectorAll('[data-reveal]');
   if (reduce || !('IntersectionObserver' in window)) {

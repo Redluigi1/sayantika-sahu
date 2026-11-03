@@ -351,3 +351,8 @@ body.menu-open .site-header { transform: none; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .marquee__track { animation: none; }
 }
+
+/* ---------- site shell hooks (Index label in the header) ---------- */
+.hdr-actions { display: flex; align-items: center; gap: 18px; }
+.hdr-actions .label-btn { padding: 7px 12px 7px 14px; }
+@media (min-width: 761px) { .site-header { gap: 24px; } .site-nav { margin-left: auto; } }
