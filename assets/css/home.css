@@ -9,7 +9,7 @@
   display: flex; flex-direction: column;
   --gap: clamp(16px, 2.4vw, 40px);
   --nf: clamp(84px, 19.5vw, 370px);
-  --cw: min(calc((84vw - 3 * var(--gap)) / 4), calc((100svh - var(--hdr) - var(--nf) * .8 - 215px) / 1.42), 300px);
+  --cw: min(calc((60vw - var(--gap)) / 2), calc((100svh - var(--hdr) - var(--nf) * .8 - 215px) / 1.42), 300px);
 }
 .rack-canvas { position: absolute; left: 0; top: 0; z-index: 2; pointer-events: none; }
 .hero.is-flying .rack-canvas { z-index: 20; }
@@ -36,7 +36,7 @@
 .rack {
   position: relative; z-index: 3; list-style: none; padding: 0;
   margin: calc(var(--nf) * .8 - 34px) auto 0;
-  display: grid; grid-template-columns: repeat(4, var(--cw)); gap: var(--gap); justify-content: center;
+  display: grid; grid-template-columns: repeat(2, var(--cw)); gap: var(--gap); justify-content: center;
 }
 .rack::before { /* brass rail */
   content: ""; position: absolute; left: -70px; right: -70px; top: -5px; height: 7px; border-radius: 4px; z-index: 2;
