@@ -49,6 +49,15 @@
   background: radial-gradient(circle at 6px 6.5px, #b69663 0 5px, #4a3520 5.5px 6.5px, transparent 7px) left / 13px 13px no-repeat,
               radial-gradient(circle at 6.5px 6.5px, #b69663 0 5px, #4a3520 5.5px 6.5px, transparent 7px) right / 13px 13px no-repeat;
 }
+/* desktop: the rail lives in the space left of the big "Sahu" so no swatch covers it
+   ("Sahu" starts about 1.8 x its font size in from the right margin) */
+@media (min-width: 761px) {
+  .hero {
+    --room: calc(100vw - 2 * var(--gutter) - var(--nf) * 1.8 - 24px);
+    --cw: min(calc((var(--room) - 2 * var(--gap)) / 3), calc((100svh - var(--hdr) - var(--nf) * .8 - 215px) / 1.42), 300px);
+  }
+  .rack { justify-content: start; margin-right: auto; margin-left: max(0px, calc((var(--room) - 3 * var(--cw) - 2 * var(--gap)) / 2)); }
+}
 .slot { position: relative; }
 .slot__link { display: block; position: relative; outline-offset: 8px; }
 .slot__clip {
