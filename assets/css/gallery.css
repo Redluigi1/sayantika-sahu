@@ -15,7 +15,7 @@
 .pg-head__lede { max-width: 60ch; margin: 28px 0 0; font-size: clamp(16px, 1.3vw, 20px); line-height: 1.55; }
 
 /* jump links (shoot list) */
-.jump { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.jump { list-style: none; padding: 0; margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); border-top: 1px solid var(--line); }
 .jump a { display: flex; flex-direction: column; gap: 4px; padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); transition: color .3s; }
 .jump a:hover { color: var(--accent); }
 .jump b { font-family: var(--serif); font-weight: 400; font-size: clamp(20px, 1.8vw, 28px); line-height: 1.1; }

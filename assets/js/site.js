@@ -13,8 +13,9 @@
   html.classList.add('js');
 
   const SECTIONS = [
-    { key: 'styling',  n: '01', title: 'Styling & Photography', href: 'styling/',   img: 'assets/img/sp/veil-01-sm.webp', note: 'Four stories', color: '#2A0E06', fg: '#F6E3C8' },
-    { key: 'garment',  n: '02', title: 'Garment Collection',   href: 'garment/',   img: 'assets/img/gc/gc-cover-sm.webp', note: 'Beneath the Canopy', color: '#E8DDC7', fg: '#1A1412' },
+    { key: 'garment',  n: '01', title: 'Garment Collection',    href: 'garment/', img: 'assets/img/gc/gc-cover-sm.webp', note: 'Beneath the Canopy', color: '#E8DDC7', fg: '#1A1412' },
+    { key: 'styling',  n: '02', title: 'Styling & Photography', href: 'styling/', img: 'assets/img/sp/veil-01-sm.webp',  note: 'Three shoots',       color: '#2A0E06', fg: '#F6E3C8' },
+    { key: 'product',  n: '03', title: 'Product Photography',   href: 'product/', img: 'assets/img/sp/still-02-sm.webp', note: 'Fragrance shoot',    color: '#17100B', fg: '#F2E2C4' },
   ];
   const HOME = { key: 'home', title: 'Sayantika Sahu', color: '#EFEAE2', fg: '#1A1412' };
 
@@ -311,7 +312,7 @@
     <div class="sb__scrim"></div>
     <div class="sb__panel">
       <div class="sb__top mono"><span>The swatch book — Index</span><button class="sb__close mono" type="button">Close <span>✕</span></button></div>
-      <div class="sb__head"><h2 class="sb__title">Pick a <i>swatch</i>.</h2><p>Two sections: styling &amp; photography, and the garment collection.</p></div>
+      <div class="sb__head"><h2 class="sb__title">Pick a <i>swatch</i>.</h2><p>Three sections: the garment collection, styling &amp; photography, and product photography.</p></div>
       <div class="sb__rail"><ol class="sb__list">${SECTIONS.map((s, i) => `
         <li class="sb__item ${s.soon ? 'is-soon' : 'is-live'} ${PAGE === s.key ? 'is-current' : ''}" style="--i:${i}">
           ${s.soon ? `<button class="sb__link" type="button" data-soon="${s.note}">` : `<a class="sb__link" href="${ROOT + s.href}">`}

@@ -4,13 +4,14 @@ Static site with no build step. It is hosted on GitHub Pages from `main` at the 
 
 ```
 index.html              Home: the swatch rail (WebGL cloth), about, skills, workbook, contact
-styling/index.html      N°01 Styling & Photography: four shoots, each a short text + photo grid
-garment/index.html      N°02 Garment Collection: Beneath the Canopy, 17 portfolio pages in order
+garment/index.html      N°01 Garment Collection: Beneath the Canopy, 17 portfolio pages in order
+styling/index.html      N°02 Styling & Photography: three shoots, each a short text + photo grid
+product/index.html      N°03 Product Photography: the fragrance shoot
 modelling/index.html    Old modelling page. No longer linked from the site.
 assets/css/core.css     design tokens, type, header, cursor, reveals, lightbox
 assets/css/shell.css    shared by every page: Index label, cloth curtain, swatch-book menu
 assets/css/home.css     home page
-assets/css/gallery.css  styling + garment pages
+assets/css/gallery.css  garment, styling and product pages
 assets/css/atelier.css  modelling page
 assets/js/site.js       SECTIONS list, curtain page transitions, swatch-book menu
 assets/js/fx.js         Lenis smooth scroll, reveals, tone shifts, cursor, lightbox
