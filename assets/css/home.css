@@ -230,6 +230,7 @@
 .chip--denim { background: repeating-linear-gradient(45deg, #2d4467 0 2px, #4a6790 2px 4px, #39557c 4px 6px); }
 .chip--cotton { background: repeating-linear-gradient(0deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px), repeating-linear-gradient(90deg, rgba(255,255,255,.4) 0 1px, transparent 1px 3px), #E9B8B0; }
 .chip--pashmina { background: radial-gradient(circle at 30% 40%, rgba(255,255,255,.25), transparent 50%), repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 2px, transparent 2px 5px), #C2A27A; }
+.chip--tulle { background: radial-gradient(circle, rgba(0,0,0,.35) 0 1px, transparent 1.4px) 0 0 / 5px 5px, linear-gradient(135deg, #C4202A, #7E0E14); }
 .chip--sozni { background: radial-gradient(circle, #E9C46A 0 2px, transparent 2.5px) 0 0 / 14px 14px, radial-gradient(circle, #B7323A 0 1.6px, transparent 2px) 7px 7px / 14px 14px, #23382C; }
 .proj__more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .7s var(--ease); }
 .proj__more > div { overflow: hidden; }
