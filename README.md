@@ -23,6 +23,8 @@ assets/img/gc/          garment collection pages (`gc-NN-sm.webp` 1000px, `gc-NN
 Libraries load from jsdelivr at pinned versions: three 0.170.0, GSAP 3.13.0 + ScrollTrigger, Lenis 1.3.4.
 Fonts are Instrument Serif, Geist and Geist Mono, from Google Fonts.
 
+CSS and JS links carry `?v=N`. Bump N in every page whenever a CSS/JS file changes, or returning visitors may get the new HTML with old cached styles (Pages caches files for 10 minutes).
+
 ## Adding a section
 1. Create a folder with an `index.html`, copying the structure of `garment/index.html`.
 2. In `assets/js/site.js`, add an entry to `SECTIONS` with `href`, `img`, `note`, `color` and `fg`.
