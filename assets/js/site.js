@@ -311,8 +311,8 @@
   sb.innerHTML = `
     <div class="sb__scrim"></div>
     <div class="sb__panel">
-      <div class="sb__top mono"><span>The swatch book — Index</span><button class="sb__close mono" type="button">Close <span>✕</span></button></div>
-      <div class="sb__head"><h2 class="sb__title">Pick a <i>swatch</i>.</h2><p>Three sections: the garment collection, styling &amp; photography, and product photography.</p></div>
+      <div class="sb__top mono"><span>Index</span><button class="sb__close mono" type="button">Close <span>✕</span></button></div>
+      <div class="sb__head"><h2 class="sb__title">The <i>work</i>.</h2></div>
       <div class="sb__rail"><ol class="sb__list">${SECTIONS.map((s, i) => `
         <li class="sb__item ${s.soon ? 'is-soon' : 'is-live'} ${PAGE === s.key ? 'is-current' : ''}" style="--i:${i}">
           ${s.soon ? `<button class="sb__link" type="button" data-soon="${s.note}">` : `<a class="sb__link" href="${ROOT + s.href}">`}
@@ -323,7 +323,7 @@
         </li>`).join('')}
       </ol></div>
       <div class="sb__foot mono">
-        <nav><a href="${ROOT || './'}">Home</a><a href="${ROOT}#about" data-close>About</a><a href="${ROOT}#contact" data-close>Contact</a></nav>
+        <nav><a href="${ROOT || './'}">Home</a></nav>
         <nav><a href="mailto:Sahusayantika2@gmail.com">Email</a><a href="https://www.instagram.com/sayabcdefghijklmnopqrstuvw/" target="_blank" rel="noopener">Instagram ↗</a></nav>
       </div>
     </div>

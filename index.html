@@ -17,9 +17,9 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js" crossorigin>
-  <link rel="stylesheet" href="assets/css/core.css?v=4">
-  <link rel="stylesheet" href="assets/css/shell.css?v=4">
-  <link rel="stylesheet" href="assets/css/home.css?v=4">
+  <link rel="stylesheet" href="assets/css/core.css?v=5">
+  <link rel="stylesheet" href="assets/css/shell.css?v=5">
+  <link rel="stylesheet" href="assets/css/home.css?v=5">
 </head>
 <body data-tone="bone">
   <div class="curtain" aria-hidden="true">
@@ -30,11 +30,10 @@
 
   <header class="hdr">
     <a class="hdr__mark" href="./" aria-label="Sayantika Sahu, home">Sayantika <i>Sahu</i></a>
-    <nav class="hdr__mid mono" aria-label="On this page">
-      <a href="#rack">Work</a><a href="#about">About</a><a href="#contact">Contact</a>
+    <nav class="hdr__mid mono" aria-label="Contact">
+      <a href="mailto:Sahusayantika2@gmail.com">Email</a><a href="https://www.instagram.com/sayabcdefghijklmnopqrstuvw/" target="_blank" rel="noopener">Instagram ↗</a>
     </nav>
     <div class="hdr__end">
-      <span class="mono muted hdr__extra">Portfolio ’<span class="yy">26</span></span>
       <button class="label-btn" type="button" data-menu-open>Index <b>03</b><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></button>
     </div>
   </header>
@@ -52,14 +51,6 @@
         <span class="muted">B.Des ’24 — ’28</span>
       </div>
 
-      <div class="rack-cue">
-        <span class="mono rack-cue__k">( The work )</span>
-        <span class="rack-cue__t">Pick a swatch <em>&mdash; each one opens a section</em></span>
-        <svg class="rack-cue__arrow" viewBox="0 0 80 90" aria-hidden="true">
-          <path class="thread" d="M6 6 C 46 8, 70 34, 44 74"/>
-          <g class="needle" transform="translate(44 74) rotate(118)"><path d="M0 0 L22 -1.6 L22 1.6 Z"/><ellipse cx="17" cy="0" rx="3" ry="1"/></g>
-        </svg>
-      </div>
 
       <ol class="rack" id="rack" aria-label="Sections — choose one to open">
         <li class="slot is-live" data-slot data-n="01" data-word="Garments" data-img="assets/img/gc/gc-cover-sm.webp" data-fy=".3">
@@ -85,115 +76,6 @@
         </li>
       </ol>
 
-      <div class="hero__foot">
-        <p class="hero__intro">Building the garment, styling the frame, taking the photograph &mdash; and now and then stepping in front of the lens.</p>
-        <span class="mono muted hero__hint"><span class="hint-dot"></span>Garment Collection · Styling &amp; Photography · Product Photography</span>
-      </div>
-    </section>
-
-    <!-- ================= STATEMENT ================= -->
-    <section class="statement wrap" data-tone="bone">
-      <div class="statement__side mono muted"><span>( Hello )</span><span class="stitch"></span></div>
-      <p class="statement__text" data-scrub-words data-emph="pattern|camera">I’m Sayantika, a fifth-semester fashion design student at NIFT Srinagar. I draft the pattern, cut and construct the garment, then style it and photograph the story it belongs to. Sometimes I end up in front of the camera too.</p>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section class="about wrap" id="about" data-tone="bone" aria-labelledby="about-h">
-      <figure class="about__fig">
-        <div class="frame about__frame" data-wipe>
-          <img src="assets/img/digitals-01-sm.webp" width="900" height="1107" loading="lazy" alt="Sayantika in a natural, no-makeup portrait wearing a cream jacket against a plain grey backdrop" data-parallax="10">
-        </div>
-        <figcaption class="mono"><span>The maker</span><span class="muted">Srinagar · West Bengal</span></figcaption>
-        <span class="about__pin" aria-hidden="true"></span>
-      </figure>
-
-      <div class="about__body">
-        <span class="mono muted">( About )</span>
-        <h2 id="about-h" class="about__h" data-split>From pattern paper to the <em>final frame</em>.</h2>
-        <p class="about__lede" data-reveal>I’m looking for design internships where I can learn from people in the industry. I bring fresh ideas and keep working on my craft.</p>
-        <div class="open-badge mono" data-reveal style="--d:.1s"><span class="pulse"></span> Open to design internships</div>
-
-        <dl class="facts" data-reveal style="--d:.15s">
-          <div class="facts__row"><dt class="mono muted">Education</dt><dd><b>Bachelor of Design, Fashion Design</b><span>National Institute of Fashion Technology, Srinagar · 2024 — 2028</span><b>Class XII, CBSE</b><span>Army Public School · 2023</span></dd></div>
-          <div class="facts__row"><dt class="mono muted">Software</dt><dd class="chips"><span>CLO 3D</span><span>Illustrator</span><span>Photoshop</span><span>InDesign</span><span>Lightroom</span><span>Procreate</span></dd></div>
-          <div class="facts__row"><dt class="mono muted">Languages</dt><dd>English · Hindi · Bengali</dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- ================= SKILLS · measuring tapes ================= -->
-    <section class="tapes" aria-label="Skills">
-      <h2 class="sr-only">Skills</h2>
-      <div class="tape tape--a" data-tape="-1">
-        <div class="tape__track">
-          <span>Draping</span><span>Garment construction</span><span>Pattern making &amp; grading</span><span>Fabric manipulation</span><span>Dyeing &amp; bleaching</span><span>Hand embroidery</span>
-          <span aria-hidden="true">Draping</span><span aria-hidden="true">Garment construction</span><span aria-hidden="true">Pattern making &amp; grading</span><span aria-hidden="true">Fabric manipulation</span><span aria-hidden="true">Dyeing &amp; bleaching</span><span aria-hidden="true">Hand embroidery</span>
-        </div>
-      </div>
-      <div class="tape tape--b" data-tape="1" aria-hidden="true">
-        <div class="tape__track">
-          <span>CLO 3D</span><span>Illustrator</span><span>Photoshop</span><span>InDesign</span><span>Lightroom</span><span>Procreate</span><span>Styling</span><span>Photography</span>
-          <span>CLO 3D</span><span>Illustrator</span><span>Photoshop</span><span>InDesign</span><span>Lightroom</span><span>Procreate</span><span>Styling</span><span>Photography</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PROJECTS · the workbook ================= -->
-    <section class="work wrap" id="work" data-tone="bone" aria-labelledby="work-h">
-      <header class="work__head">
-        <span class="mono muted">( From the workbook )</span>
-        <h2 id="work-h" class="work__h" data-split>Collections, craft &amp; <em>the runway</em>.</h2>
-        <p class="muted work__note" data-reveal>A few projects from the past two years. The full process for Beneath the Canopy is in <a href="garment/">Garment Collection</a>.</p>
-      </header>
-
-      <ol class="projects">
-        <li class="proj" data-reveal>
-          <button class="proj__row" type="button" aria-expanded="false">
-            <span class="proj__n mono">01</span>
-            <span class="proj__t">Beneath the Canopy</span>
-            <span class="proj__m mono muted">Collection · Denim · 5 pieces</span>
-            <span class="proj__chip chip--denim" aria-hidden="true"></span>
-          </button>
-          <div class="proj__more"><div><p>A mushroom-inspired collection rooted in the hidden world of the forest. A 5-piece capsule wardrobe in denim, fully constructed and styled.</p></div></div>
-          <span class="stitch"></span>
-        </li>
-        <li class="proj" data-reveal>
-          <button class="proj__row" type="button" aria-expanded="false">
-            <span class="proj__n mono">02</span>
-            <span class="proj__t">National Handloom Day</span>
-            <span class="proj__m mono muted">Campus show · 2024 &amp; 2025</span>
-            <span class="proj__chip chip--pashmina" aria-hidden="true"></span>
-          </button>
-          <div class="proj__more"><div><p><b>2024</b> — volunteered backstage, draping pashmina shawls on models without pinning or stitching the shawl. <b>2025</b> — designed, draped and walked the show.</p></div></div>
-          <span class="stitch"></span>
-        </li>
-        <li class="proj" data-reveal>
-          <button class="proj__row" type="button" aria-expanded="false">
-            <span class="proj__n mono">03</span>
-            <span class="proj__t">Sozni Embroidery</span>
-            <span class="proj__m mono muted">Craft research documentation</span>
-            <span class="proj__chip chip--sozni" aria-hidden="true"></span>
-          </button>
-          <div class="proj__more"><div><p>Field research across the Jammu, Budgam and Srinagar clusters, including craft museums and the School of Design. It became a report and presentation on the craft and its origin.</p></div></div>
-          <span class="stitch"></span>
-        </li>
-      </ol>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section class="contact wrap" id="contact" data-tone="crimson" aria-labelledby="contact-h">
-      <div class="contact__kicker mono"><span>( Internships · Collaborations · Bookings )</span><span class="muted">NIFT Srinagar</span></div>
-      <h2 id="contact-h" class="sr-only">Contact</h2>
-      <a class="contact__mail" href="mailto:Sahusayantika2@gmail.com" data-magnetic=".08">Sahusayantika2@gmail.com <span aria-hidden="true">→</span></a>
-      <div class="contact__row mono">
-        <a href="https://www.instagram.com/sayabcdefghijklmnopqrstuvw/" target="_blank" rel="noopener">Instagram ↗</a>
-        <button type="button" data-menu-open class="mono" style="text-align:left">The swatch book (Index)</button>
-        <a href="#top">Back to the rail ↑</a>
-      </div>
-      <footer class="foot mono muted">
-        <span>© <span data-year>2026</span> Sayantika Sahu</span>
-        <span>All images used with permission</span>
-      </footer>
     </section>
   </main>
 
@@ -202,9 +84,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" defer></script>
-  <script src="assets/js/site.js?v=4" defer></script>
-  <script src="assets/js/fx.js?v=4" defer></script>
-  <script src="assets/js/home.js?v=4" defer></script>
-  <script type="module" src="assets/js/swatchbook.js?v=4"></script>
+  <script src="assets/js/site.js?v=5" defer></script>
+  <script src="assets/js/fx.js?v=5" defer></script>
+  <script src="assets/js/home.js?v=5" defer></script>
+  <script type="module" src="assets/js/swatchbook.js?v=5"></script>
 </body>
 </html>
